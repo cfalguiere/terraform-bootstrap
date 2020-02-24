@@ -38,7 +38,7 @@ On a local machine
 
 Steps of the user creation
 - Give it a name
-- Allow at least Programmatic access (required to gert the API key and secret)
+- Allow at least Programmatic access (required to get the API key and secret)
 - Console access might be useful for debugging tasks
 - Enables a password that allows users to sign-in to the AWS Management Console
 - Uncheck Require password reset
