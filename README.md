@@ -4,9 +4,9 @@
 
 This plan bootstraps the Terraform environment.
 
-It creates the resources required to run Terraform with a role and use a S3 backend to keep track of the remote state.
+It creates the IAM and S3 resources required to run Terraform with a role and use a S3 backend to keep track of the remote state.
 
-It is intended to be run with minimal setup.
+It is intended to be run with minimal pre-existing Terraform configuraation.
 
 Resources Created :
 - an automation role
