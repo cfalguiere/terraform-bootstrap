@@ -36,8 +36,8 @@ On a local machine
 
 ### (Details) create an AWS user with admin permissions
 
-Steps of the user creation
-- Give it a name
+Steps of the admin account creation
+- Give it a name (e.g. iac-admin)
 - Allow at least Programmatic access (required to get the API key and secret)
 - Console access might be useful for debugging tasks
 - Enables a password that allows users to sign-in to the AWS Management Console
