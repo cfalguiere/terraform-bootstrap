@@ -16,7 +16,7 @@ resource "local_file" "backend_config" {
                             profile_credentials = var.parent_context.profile_credentials
                             admin_role_name     = var.parent_context.admin_role.name
                             admin_role_arn      = var.parent_context.admin_role.arn
-                            backend_bucket      = var.parent_context.shared_s3_bucket.name
+                            backend_bucket      = var.parent_context.shared_s3_bucket.bucket
                             region              = var.parent_context.region
                         }
                     )
