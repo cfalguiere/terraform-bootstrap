@@ -26,7 +26,7 @@ AWS advice against using the root account. We will use a user account to run the
 
 Connect to the AWS web console and
 - create an AWS user with admin permissions (see details hereafter)
-- create a repository in CodeCommit
+- create a repository in CodeCommit (no need to set permissions, the bootstrap will take care of that)
 
 On a local machine
 - download terraform
