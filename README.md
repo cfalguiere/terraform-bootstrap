@@ -1,6 +1,6 @@
 # terraform-bootstrap-account
 
-## goals
+## Goals
 
 This plan bootstraps the Terraform environment.
 
@@ -43,7 +43,7 @@ Steps of the user creation
 - Enables a password that allows users to sign-in to the AWS Management Console
 - Uncheck Require password reset
 - In permissions Select AdministratorAccess
-- Eeview and Validate
+- Review and Validate
 
 As a result AWS will generate a key and give you the apportunity to download it. This is the only moment you will have access to the secret attached to the key.
 - Download the csv
