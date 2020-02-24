@@ -123,10 +123,10 @@ $ terraform apply -auto-approve tfplan
 WARNING : Please note that the .tfstate is generated locally. Keep track of the the terraform.state generated in the current directory. You may upload this file manually to the S3 bucket created for terraform.
 
 In order to check whether the configuration is OK you may tun the tests below :
-- check the role TF-AdminProvisioningFullAccess for existence
-- check the user tf_admin is in the list of trusted entities
-- check the role has 3 policies AdministratorAccess, tf_terraform_envs_s3_policy, tf_code_commit_infra_policy
-- check the S3 bucket tf_terraform_envs for existence
+- check the role IAC-AdminProvisioningFullAccess for existence
+- check the user iac_admin is in the list of trusted entities
+- check the role has 3 policies AdministratorAccess, iac_terraform_envs_s3_policy, iac_code_commit_infra_policy
+- check the S3 bucket iac_terraform_envs for existence
 - check the generated config file for existence
 - check user has PassRole permission
 
@@ -136,24 +136,25 @@ If the workloads has been executed correctly the following resources should have
 
 ```
 $ terraform state list
-data.aws_codecommit_repository.infra_vc
-data.aws_iam_policy.base_policy
-data.aws_iam_policy_document.pass_role_policy_document
-data.aws_iam_policy_document.trust_policy_document
-data.aws_iam_policy_document.vc_policy_document
-data.aws_iam_policy_document.workspaces_s3_policy_document
-data.aws_iam_user.admin_user
-aws_iam_policy.pass_role_policy
-aws_iam_policy.vc_policy
-aws_iam_policy.workspaces_s3_policy
-aws_iam_role.provisioning
-aws_iam_role_policy_attachment.provisioning_full_access
-aws_iam_role_policy_attachment.provisioning_vc_access
-aws_iam_role_policy_attachment.provisioning_worspaces_s3_access
-aws_iam_user_policy_attachment.pass_role_to_admin
-aws_s3_bucket.workspaces
-aws_s3_bucket_public_access_block.workspaces_block_all
-local_file.backend_config
+module.admin_role.data.aws_iam_policy_document.ec2_trust_policy_document
+module.admin_role.data.aws_iam_policy_document.pass_role_policy_document
+module.admin_role.data.aws_iam_policy_document.trust_policy_document
+module.admin_role.data.aws_iam_policy_document.vc_policy_document
+module.admin_role.aws_iam_policy.pass_role_policy
+module.admin_role.aws_iam_policy.vc_policy
+module.admin_role.aws_iam_role.current
+module.admin_role.aws_iam_role_policy_attachment.provisioning_full_access
+module.admin_role.aws_iam_role_policy_attachment.provisioning_vc_access
+module.admin_role.aws_iam_role_policy_attachment.s3_access
+module.admin_role.aws_iam_user_policy_attachment.pass_role_to_admin
+module.backend_config.local_file.backend_config
+module.selected_admin_user.data.aws_iam_policy.base_policy
+module.selected_admin_user.data.aws_iam_user.selected
+module.selected_vc_repo.data.aws_codecommit_repository.selected_vc
+module.shared_s3_bucket.data.aws_iam_policy_document.list_and_access_all
+module.shared_s3_bucket.aws_iam_policy.list_and_access_all
+module.shared_s3_bucket.aws_s3_bucket.current
+module.shared_s3_bucket.aws_s3_bucket_public_access_block.current_block_all
 ```
 
 
