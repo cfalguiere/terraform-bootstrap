@@ -21,7 +21,10 @@ variable "parent_context" {
                             environment = string
                             creator = string
                           })
-      user_profile          = any
+      user_profile          = object({
+                                    user_name = string
+                                    arn = string
+                                  })
       base_policy           = any
       bucket_policy         = any
       vc_repo               = any

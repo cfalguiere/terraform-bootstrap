@@ -35,6 +35,6 @@ resource "aws_iam_policy" "pass_role_policy" {
 
 # add policy to admin user
 resource "aws_iam_user_policy_attachment" "pass_role_to_admin" {
-  user       = var.parent_context.user_profile.name
+  user       = var.parent_context.user_profile.user_name
   policy_arn = aws_iam_policy.pass_role_policy.arn
 }
