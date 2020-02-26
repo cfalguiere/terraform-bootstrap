@@ -29,7 +29,7 @@ shared_s3_bucket = {
 }
 
 admin_role = {
-  name        = "IAC-AI_Demos"
+  name        = "iac-RoleForCentralAdmin"
   ou_path     = "/central/"
   description = "Admin Role"
 }
